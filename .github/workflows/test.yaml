@@ -1,0 +1,13 @@
+name: test_workflow
+on : workflow_dispatch
+jobs:
+  testing_job:
+    name: cmd-job
+    runs-on: self-hosted
+    steps:
+    - id: testing-cmd
+      name: testing-step
+      run: echo how are you
+      
+    - name: testing-step1
+      run: echo how are you boy
