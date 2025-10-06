@@ -19,6 +19,7 @@ jobs:
         client-id: af8c3a34-e56a-4033-a815-ff9f0a08b779
         tenant-id: cb139084-0e90-46f4-9031-8067a8f29787
         subscription-id: 16648c27-24de-48bf-b2d6-cc829eea5412
+        auth-type: "federated" 
             
     - name: Terraform fmt
       id: fmt
