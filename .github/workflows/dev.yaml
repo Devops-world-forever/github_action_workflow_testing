@@ -1,0 +1,12 @@
+name: dev_workflow
+
+on: workflow_dispatch
+
+jobs:
+  terraform-job:
+    name: terraform-job
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+       
