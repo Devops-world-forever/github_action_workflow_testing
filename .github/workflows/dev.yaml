@@ -16,9 +16,9 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v2.3.0
         with:
-          client-id: 3a3d0f1a-3b27-4f4e-8bbb-0094cac4d8f2
-          tenant-id: cb139084-0e90-46f4-9031-8067a8f29787
-          subscription-id: 16648c27-24de-48bf-b2d6-cc829eea5412
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
          
       - name: Terraform fmt
         id: fmt
@@ -31,11 +31,7 @@ jobs:
         id: init
         run: terraform init -input=false
         working-directory: environments/dev
-        env:
-          ARM_USE_OIDC: true
-          ARM_CLIENT_ID: 3a3d0f1a-3b27-4f4e-8bbb-0094cac4d8f2
-          ARM_TENANT_ID: cb139084-0e90-46f4-9031-8067a8f29787
-          ARM_SUBSCRIPTION_ID: 16648c27-24de-48bf-b2d6-cc829eea5412
+        
 
 
           
