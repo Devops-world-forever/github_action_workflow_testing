@@ -31,6 +31,11 @@ jobs:
         id: init
         run: terraform init -input=false
         working-directory: environments/dev
+        env:
+          ARM_USE_OIDC: true
+          ARM_CLIENT_ID: 3a3d0f1a-3b27-4f4e-8bbb-0094cac4d8f2
+          ARM_TENANT_ID: cb139084-0e90-46f4-9031-8067a8f29787
+          ARM_SUBSCRIPTION_ID: 16648c27-24de-48bf-b2d6-cc829eea5412
 
 
           
