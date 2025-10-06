@@ -9,4 +9,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5.0.0
-       
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          client-id: 3a3d0f1a-3b27-4f4e-8bbb-0094cac4d8f2
+          tenant-id: cb139084-0e90-46f4-9031-8067a8f29787
+          subscription-id: 16648c27-24de-48bf-b2d6-cc829eea5412
