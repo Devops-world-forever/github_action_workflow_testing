@@ -40,5 +40,30 @@ jobs:
         run: terraform plan -no-color -input=false
         continue-on-error: true
         working-directory: environments/dev
+
+  terraform-apply:
+    runs-on: self-hosted
+    needs: terraform-init-plan
+    environment: dev
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+          client-id: 833fc644-f2ab-48cc-bb4e-ea0e03c98ac3
+          tenant-id: cb139084-0e90-46f4-9031-8067a8f29787
+          subscription-id: 16648c27-24de-48bf-b2d6-cc829eea5412
+    
+      - name: Terraform Init
+        id: init
+        run: terraform init -input=false
+        working-directory: environments/dev
+
+      - name: Terraform apply
+        id: apply
+        run: terraform apply --auto-approve
+        continue-on-error: true
+        working-directory: environments/dev
   
           
